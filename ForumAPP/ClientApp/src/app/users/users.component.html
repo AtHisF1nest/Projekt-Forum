@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <div class="mb-5 mt-0">
+    <h2>Zmiana hasła</h2>
+  </div>
+  <div class="form-group">
+    <label for="newPassword">Nowe hasło</label>
+    <input class="form-control" type="password" [(ngModel)]="newPassword" placeholder="Nowe hasło.." id="newPassword" />
+  </div>
+  <div class="form-group">
+    <label for="newPassword2">Powtórz nowe hasło</label>
+    <input class="form-control" type="password" [(ngModel)]="newPassword2" placeholder="Ponownie.." id="newPassword2" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" (click)="changePassword()">Zmień hasło</button>
+  </div>
+  <div class="form-group">
+    <span class="valid">{{validationMessage}}</span>
+  </div>
+</div>

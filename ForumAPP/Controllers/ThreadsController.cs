@@ -33,7 +33,8 @@ namespace ForumAPP.Controllers
                 .ThenInclude(post => post.User)
                 .Where(thread =>
                     (string.IsNullOrWhiteSpace(searchThreadsDto.SearchText) ||
-                     (thread.Title.ToLower() + thread.Content.ToLower()).Contains(searchThreadsDto.SearchText.ToLower())) &&
+                     (thread.Title.ToLower() + thread.Content.ToLower()).Contains(searchThreadsDto.SearchText.ToLower()) ||
+                     thread.Posts.Any(post => post.Message.ToLower().Contains(searchThreadsDto.SearchText))) &&
                     (!searchThreadsDto.CanGetWithoutPosts || thread.Posts.Count == 0) &&
                     (searchThreadsDto.TagId == default || searchThreadsDto.TagId == 1 || thread.TagId == searchThreadsDto.TagId));
 
